@@ -9,9 +9,7 @@ function Container() {
 
    const createData  = (data) => {
 
-      console.log(data);
-      let isCountry = db.filter((ele) => ele.id !== data.id);
-      console.log(isCountry);
+      let isCountry = db.filter((ele) => ele.country === data.country);
       if (!isCountry.length > 0) {
          data.id = Date.now();
          setDb([...db, data]);
