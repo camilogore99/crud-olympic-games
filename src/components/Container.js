@@ -8,8 +8,17 @@ function Container() {
    const [dataToEdit, setDataToEdit] = useState(null);
 
    const createData  = (data) => {
-      data.id = Date.now();
-      setDb([...db, data]);
+
+      console.log(data);
+      let isCountry = db.filter((ele) => ele.id !== data.id);
+      console.log(isCountry);
+      if (!isCountry.length > 0) {
+         data.id = Date.now();
+         setDb([...db, data]);
+      }else {
+         alert("el pais ya existe");
+         return;
+      }
    };
 
    const updateData  = (data) => {
